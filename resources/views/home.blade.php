@@ -3,6 +3,6 @@
     Home
 </x-slot:heading>
 
-    <p>{{ $greetings }} Home</p>
+    <p>Home</p>
 
 </x-layout>
