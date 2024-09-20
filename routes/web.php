@@ -5,9 +5,8 @@ use App\Models\Job;
 
 
 Route::get('/', function () {
-    return view('home', data: [
-        'greetings' => 'hello', # $greetings
-    ]);
+    $jobs = Job::all();
+    dd($jobs[0]->title);
 });
 
 
