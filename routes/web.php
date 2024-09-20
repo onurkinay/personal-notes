@@ -10,7 +10,9 @@ Route::get('/', function () {
 
 
 Route::get('/jobs', function ()  {
-    $jobs = Job::with('employer')->get(); //Job::all but better
+    $jobs = Job::with('employer')->paginate(5); //pagintation
+    //$jobs = Job::with('employer')->simplePaginate(5);
+    //$jobs = Job::with('employer')->cursorPaginate(5); // hashed link instead of number page
 
     return view('jobs', [
         'jobs' => $jobs
