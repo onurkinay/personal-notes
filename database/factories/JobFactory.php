@@ -19,6 +19,7 @@ class JobFactory extends Factory
     {
         return [
             'title' => fake()->jobTitle(),
+            'employer_id' => \App\Models\Employer::factory(),
             'salary' => '$50,000 USD'
         ];
     }
