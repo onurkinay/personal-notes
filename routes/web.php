@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view("/", 'home');
 Route::view('/contact', 'contact');
+Route::resource('jobs',JobController::class);
+
 /*
 Route::controller(JobController::class)->group(function (){
     Route::get("/jobs", "index");
@@ -15,6 +17,8 @@ Route::controller(JobController::class)->group(function (){
     Route::patch('/jobs/{id}', 'update');
     Route::delete('/jobs/{id}', 'delete');
 });*/
-
-Route::resource('jobs',JobController::class);
+/*
+Route::resource('jobs',JobController::class,
+['expect'=> ['edit'] //expect,only
+]);*/
 
