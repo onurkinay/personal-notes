@@ -10,17 +10,28 @@ Route::get('/', function () {
 
 
 Route::get('/jobs', function ()  {
-    $jobs = Job::with('employer')->paginate(5); //pagintation
+    $jobs = Job::with('employer')->latest()->paginate(5); //pagintation
     //$jobs = Job::with('employer')->simplePaginate(5);
     //$jobs = Job::with('employer')->cursorPaginate(5); // hashed link instead of number page
 
     return view('jobs.index', [
         'jobs' => $jobs
-    ]);
+    ]);    
 });
 
 Route::get('/jobs/create', function () {
     return view('jobs.create');
+});
+
+Route::post('/jobs', function () {
+    //dd(request()->all()); // request('title')
+
+    Job::create([
+        'title' => request('title'),
+        'salary'=> request('salary'),
+        'employer_id' => 1
+    ]);
+    return redirect('/jobs');
 });
 
 
