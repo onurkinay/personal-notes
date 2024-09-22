@@ -2,23 +2,16 @@
 
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\SessionController;
 
 Route::view("/", 'home');
 Route::view('/contact', 'contact');
 Route::resource('jobs',JobController::class);
 
-/*
-Route::controller(JobController::class)->group(function (){
-    Route::get("/jobs", "index");
-    Route::get('/jobs/create', 'create');
-    Route::post('/jobs', 'store');
-    Route::get('/jobs/{id}', 'show');
-    Route::get('/jobs/{id}/edit', 'edit');
-    Route::patch('/jobs/{id}', 'update');
-    Route::delete('/jobs/{id}', 'delete');
-});*/
-/*
-Route::resource('jobs',JobController::class,
-['expect'=> ['edit'] //expect,only
-]);*/
+//Auth
+Route::get('/register',[RegisteredUserController::class,'create']);
+Route::post('/register',[RegisteredUserController::class,'store']);
 
+Route::get('/login',[SessionController::class,'create']);
+Route::post('/login',[SessionController::class,'store']);
