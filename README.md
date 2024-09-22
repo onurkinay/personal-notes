@@ -1,2 +1,2 @@
-composer create-project laravel/laravel example-app
+composer create-project laravel/laravel example-app </br>
 php artisan serve
