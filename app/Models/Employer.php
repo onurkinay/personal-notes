@@ -12,5 +12,9 @@ class Employer extends Model
     public function jobs(){ // $employer->jobs :: list all jobs belongs to employee
         return $this->hasEntry(Job::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
 
